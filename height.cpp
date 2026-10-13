@@ -55,6 +55,7 @@ class Node{
     Node(ll val):data(val),left(nullptr),right(nullptr){}
     Node():data(0),left(nullptr),right(nullptr){}
 };
+//both methods for edge height calculation for ex zero for leaf node
 ll rheight(Node* curr){ //tc is o(n) and sc is o(log base2n) as at every node 
     //I give call for first left and then right(so both left and right not active)
     //at the same time
