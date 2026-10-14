@@ -76,6 +76,21 @@ int main(){
             cout<<me.top()->data<<" "; me.push(me.top()->left);
         }
     }
+    //iterative inorder dfs traversal
+    //tc is o(n) and sc is o(h) as stack hold root to leaf for only 
+    //one path at a time
+    me.push(root);
+    while(!me.empty()){
+        if(!me.top()){
+            me.pop();
+            if(!me.empty()){
+                Node* temp=me.top(); cout<<me.top()->data<<" "; me.pop(); me.push(temp->right);
+            }
+        }
+        if(!me.empty() && me.top()){
+            me.push(me.top()->left);
+        }
+    }
     //iterative postorder using 1 stack
     //tc is o(n) and sc is O(h) same reason as above
     stack<pair<Node*,ll>>m;
