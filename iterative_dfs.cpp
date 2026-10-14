@@ -110,4 +110,24 @@ int main(){
             }
         }
     }
+    cout<<"\n";
+    //iterative postorder using 2 stacks
+    //let stack2 be treated: the bottom shall have curr, above it curr->right,
+    //even above it curr->left. so when stack2 empties fianlly-for every node
+    //,its left child,then its right child,then itself gets printed in that order.
+    //so if q1 not empty-push the q1 top to q2. pop q1.
+    //then push in q1-the left of q2 first, then right of q2.
+    //(so that in q1, the right child gets processed/or pushed into q2 first before
+    //its left sibling)
+
+    stack<Node*>q1;
+    stack<Node*>q2;
+    q1.push(root);
+    while(!q1.empty()){
+        Node* temp=q1.top(); q1.pop(); 
+        q2.push(temp);
+        if(temp->left){q1.push(temp->left);}
+        if(temp->right){q1.push(temp->right);}     
+    }
+    while(!q2.empty()){ cout<<q2.top()->data<<" "; q2.pop();}
 }
