@@ -10,7 +10,7 @@
  * };
  */
 class Solution {
-public:
+public://tc is o(6n+nlogn) and sc is O(h) for recursive stacK+o(n) stored pairs in res,ans.
     pair<int,int> colrange(TreeNode* curr, int col){//to find the number of columns
         if(!curr){return {col,col};}
         pair<int,int>left,right;
